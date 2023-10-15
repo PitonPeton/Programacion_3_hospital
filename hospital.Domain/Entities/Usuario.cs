@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace hospital.Domain.Entities
 {
-	internal class Usuario
+	public class Usuario
 	{
 		public int Id_Usuario { get; set; }
 		public string Nombre { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hospital.Domain.Core
+namespace hospital.Domain.Base
 {
 	public class Persona
 	{

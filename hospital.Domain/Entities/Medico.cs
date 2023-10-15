@@ -1,4 +1,4 @@
-﻿using hospital.Domain.Core;
+﻿using hospital.Domain.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +11,7 @@ namespace hospital.Domain.Entities
 	{
 		public int Id { get; set; }
 		public string Correo { get; set; }
+
+		public ICollection<Cita> Citas { get; set; }
 	}
 }

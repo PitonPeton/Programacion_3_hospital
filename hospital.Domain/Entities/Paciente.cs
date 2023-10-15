@@ -1,4 +1,4 @@
-﻿using hospital.Domain.Core;
+﻿using hospital.Domain.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +16,6 @@ namespace hospital.Domain.Entities
 		public bool EsAlegico { get; set; }
 
 		public ICollection<Cita> Citas { get; set; }
+		public ICollection<Resultado> Resultados { get; set; }
 	}
 }
