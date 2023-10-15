@@ -10,6 +10,6 @@ namespace hospital.Domain.Entities
 	{
 		public int Id { get; set; }
 		public string Nombre { get; set; }
-		public ICollection<Resultado> Resultados { get; set; }
+		public ICollection<Resultado>? Resultados { get; set; }
 	}
 }

@@ -17,6 +17,6 @@ namespace hospital.Domain.Entities
 		public int Id_Medico { get; set; }
 		public Paciente Paciente { get; set; }
 		public Medico Medico { get; set; }
-		public ICollection<Resultado> Resultados { get; set; }
+		public ICollection<Resultado>? Resultados { get; set; }
 	}
 }

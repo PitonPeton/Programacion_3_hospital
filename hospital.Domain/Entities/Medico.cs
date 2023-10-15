@@ -12,6 +12,6 @@ namespace hospital.Domain.Entities
 		public int Id { get; set; }
 		public string Correo { get; set; }
 
-		public ICollection<Cita> Citas { get; set; }
+		public ICollection<Cita>? Citas { get; set; }
 	}
 }
