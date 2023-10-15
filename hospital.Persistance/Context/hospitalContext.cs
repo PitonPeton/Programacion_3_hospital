@@ -58,31 +58,31 @@ namespace hospital.Persistance.Context
 				.HasMany<Cita>(paciente => paciente.Citas)
 				.WithOne(cita => cita.Paciente)
 				.HasForeignKey(cita => cita.Id_Paciente)
-				.OnDelete(DeleteBehavior.Cascade);
+				.OnDelete(DeleteBehavior.SetNull);
 
 			modelBuilder.Entity<Paciente>()
 				.HasMany<Resultado>(paciente => paciente.Resultados)
 				.WithOne(resultado => resultado.Paciente)
 				.HasForeignKey(resultado => resultado.Id_Paciente)
-				.OnDelete(DeleteBehavior.Cascade);
+				.OnDelete(DeleteBehavior.SetNull);
 
 			modelBuilder.Entity<Medico>()
 				.HasMany<Cita>(medico => medico.Citas)
 				.WithOne(cita => cita.Medico)
 				.HasForeignKey(cita => cita.Id_Medico)
-				.OnDelete(DeleteBehavior.Cascade);
+				.OnDelete(DeleteBehavior.SetNull);
 
 			modelBuilder.Entity<Prueba>()
 				.HasMany<Resultado>(prueba => prueba.Resultados)
 				.WithOne(resultado => resultado.Prueba)
 				.HasForeignKey(resultado => resultado.Id_Prueba) 
-				.OnDelete(DeleteBehavior.Cascade);
+				.OnDelete(DeleteBehavior.SetNull);
 
 			modelBuilder.Entity<Cita>()
 				.HasMany<Resultado>(cita => cita.Resultados)
 				.WithOne(resultado => resultado.Cita)
 				.HasForeignKey(resultado => resultado.Id_Cita)
-				.OnDelete(DeleteBehavior.Cascade);
+				.OnDelete(DeleteBehavior.SetNull);
 
 			#endregion
 

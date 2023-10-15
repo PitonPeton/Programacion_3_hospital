@@ -12,8 +12,8 @@ using hospital.Persistance.Context;
 namespace hospital.Persistance.Migrations
 {
     [DbContext(typeof(hospitalContext))]
-    [Migration("20231015044811_Initial")]
-    partial class Initial
+    [Migration("20231015053345_No_Cascade")]
+    partial class No_Cascade
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,10 +44,10 @@ namespace hospital.Persistance.Migrations
                     b.Property<DateTime>("Fecha_Hora")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id_Medico")
+                    b.Property<int?>("Id_Medico")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_Paciente")
+                    b.Property<int?>("Id_Paciente")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -170,13 +170,13 @@ namespace hospital.Persistance.Migrations
                     b.Property<bool>("Completado")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Id_Cita")
+                    b.Property<int?>("Id_Cita")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_Paciente")
+                    b.Property<int?>("Id_Paciente")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_Prueba")
+                    b.Property<int?>("Id_Prueba")
                         .HasColumnType("int");
 
                     b.Property<string>("Resultado_Final")
@@ -235,14 +235,12 @@ namespace hospital.Persistance.Migrations
                     b.HasOne("hospital.Domain.Entities.Medico", "Medico")
                         .WithMany("Citas")
                         .HasForeignKey("Id_Medico")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("hospital.Domain.Entities.Paciente", "Paciente")
                         .WithMany("Citas")
                         .HasForeignKey("Id_Paciente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Medico");
 
@@ -254,20 +252,17 @@ namespace hospital.Persistance.Migrations
                     b.HasOne("hospital.Domain.Entities.Cita", "Cita")
                         .WithMany("Resultados")
                         .HasForeignKey("Id_Cita")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("hospital.Domain.Entities.Paciente", "Paciente")
                         .WithMany("Resultados")
                         .HasForeignKey("Id_Paciente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("hospital.Domain.Entities.Prueba", "Prueba")
                         .WithMany("Resultados")
                         .HasForeignKey("Id_Prueba")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Cita");
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace hospital.Persistance.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class No_Cascade : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -90,8 +90,8 @@ namespace hospital.Persistance.Migrations
                     Fecha_Hora = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Causa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Id_Paciente = table.Column<int>(type: "int", nullable: false),
-                    Id_Medico = table.Column<int>(type: "int", nullable: false)
+                    Id_Paciente = table.Column<int>(type: "int", nullable: true),
+                    Id_Medico = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,13 +101,13 @@ namespace hospital.Persistance.Migrations
                         column: x => x.Id_Medico,
                         principalTable: "Medico",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Cita_Paciente_Id_Paciente",
                         column: x => x.Id_Paciente,
                         principalTable: "Paciente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,9 +118,9 @@ namespace hospital.Persistance.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Resultado_Final = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Completado = table.Column<bool>(type: "bit", nullable: false),
-                    Id_Paciente = table.Column<int>(type: "int", nullable: false),
-                    Id_Prueba = table.Column<int>(type: "int", nullable: false),
-                    Id_Cita = table.Column<int>(type: "int", nullable: false)
+                    Id_Paciente = table.Column<int>(type: "int", nullable: true),
+                    Id_Prueba = table.Column<int>(type: "int", nullable: true),
+                    Id_Cita = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -130,19 +130,19 @@ namespace hospital.Persistance.Migrations
                         column: x => x.Id_Cita,
                         principalTable: "Cita",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Resultado_Paciente_Id_Paciente",
                         column: x => x.Id_Paciente,
                         principalTable: "Paciente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Resultado_Prueba_Id_Prueba",
                         column: x => x.Id_Prueba,
                         principalTable: "Prueba",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
