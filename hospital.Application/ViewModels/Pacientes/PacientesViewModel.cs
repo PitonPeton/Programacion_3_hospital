@@ -3,7 +3,7 @@ using hospital.Application.ViewModels.Base;
 
 namespace hospital.Application.ViewModels.Pacientes
 {
-    public class PacienteViewModel : PersonaViewModel
+    public class PacientesViewModel : PersonaViewModel
 	{
 		public int Id { get; set; }
 		public string Direccion { get; set; }

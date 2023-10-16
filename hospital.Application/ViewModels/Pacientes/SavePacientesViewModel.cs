@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace hospital.Application.ViewModels.Pacientes
 {
-	public class SavePacienteViewModel : SavePersonaViewModel
+	public class SavePacientesViewModel : SavePersonaViewModel
 	{
 		public int Id { get; set; }
 		[Required(ErrorMessage = "La direccion es requerida")]
