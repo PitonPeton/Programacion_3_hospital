@@ -10,11 +10,11 @@ namespace hospital.Persistance.Context
 		}
 
 		public DbSet<Paciente> Pacientes { get; set; }
-		public DbSet<Medico> Medico { get; set; }
+		public DbSet<Medico> Medicos { get; set; }
 		public DbSet<Usuario> Usuarios { get; set; }
-		public DbSet<Prueba> Prueba { get; set; }
-		public DbSet<Resultado> Resultado { get; set; }
-		public DbSet<Cita> Cita { get; set; }
+		public DbSet<Prueba> Pruebas { get; set; }
+		public DbSet<Resultado> Resultados { get; set; }
+		public DbSet<Cita> Citas { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -76,12 +76,6 @@ namespace hospital.Persistance.Context
 				.HasMany<Resultado>(prueba => prueba.Resultados)
 				.WithOne(resultado => resultado.Prueba)
 				.HasForeignKey(resultado => resultado.Id_Prueba) 
-				.OnDelete(DeleteBehavior.SetNull);
-
-			modelBuilder.Entity<Cita>()
-				.HasMany<Resultado>(cita => cita.Resultados)
-				.WithOne(resultado => resultado.Cita)
-				.HasForeignKey(resultado => resultado.Id_Cita)
 				.OnDelete(DeleteBehavior.SetNull);
 
 			#endregion

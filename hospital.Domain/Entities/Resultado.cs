@@ -14,9 +14,7 @@ namespace hospital.Domain.Entities
 
 		public int? Id_Paciente { get; set; }
 		public int? Id_Prueba { get; set; }
-		public int? Id_Cita { get; set; }
 		public Paciente? Paciente { get; set; }
 		public Prueba? Prueba { get; set; }
-		public Cita? Cita { get; set; }
 	}
 }

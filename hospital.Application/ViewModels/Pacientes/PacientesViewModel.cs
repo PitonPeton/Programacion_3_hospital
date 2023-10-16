@@ -1,8 +1,9 @@
-﻿using hospital.Domain.Base;
+﻿
+using hospital.Application.ViewModels.Base;
 
-namespace hospital.Domain.Entities
+namespace hospital.Application.ViewModels.Pacientes
 {
-	public class Paciente : Persona
+    public class PacienteViewModel : PersonaViewModel
 	{
 		public int Id { get; set; }
 		public string Direccion { get; set; }
@@ -10,7 +11,5 @@ namespace hospital.Domain.Entities
 		public bool EsFumador { get; set; }
 		public bool EsAlegico { get; set; }
 
-		public ICollection<Cita>? Citas { get; set; }
-		public ICollection<Resultado>? Resultados { get; set; }
 	}
 }

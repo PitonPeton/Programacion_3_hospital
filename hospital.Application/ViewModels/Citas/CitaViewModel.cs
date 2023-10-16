@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace hospital.Domain.Entities
+﻿
+namespace hospital.Application.ViewModels.Cita
 {
-	public class Cita
+	public class CitaViewModel
 	{
 		public int Id { get; set; }
 		public DateTime Fecha_Hora { get; set; }
@@ -15,7 +10,5 @@ namespace hospital.Domain.Entities
 
 		public int? Id_Paciente { get; set; }
 		public int? Id_Medico { get; set; }
-		public Paciente? Paciente { get; set; }
-		public Medico? Medico { get; set; }
 	}
 }
